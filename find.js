@@ -22,7 +22,12 @@ async function run() {
         const collection = db.collection("products");
 
 
-        const cursor = collection.find();
+        const cursor = collection.find({
+            "age": {$gt: 20},
+            "price": { $gt: 20,$lt: 350 }  //DIY 8
+         // {title: { $ne : "ball"}}
+        }
+        );
       //  for await (const doc of cursor){  //this is  1 option or there is two way of reading data from database
         //  console.log(doc);
        // }
